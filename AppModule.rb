@@ -1,5 +1,5 @@
 #
-#　AppModule.rb
+# AppModule.rb
 #
 module AppModule
 
