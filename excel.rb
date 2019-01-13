@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#　excel.rb
+# excel.rb
 #
 
 require File.expand_path( File.dirname(__FILE__) + '/win32ole-ext.rb' )
@@ -48,7 +48,7 @@ module Excel
 	# @biref	指定したワークブックを開く
 	#----------------------------------------------
 	def Excel.openWb( excel, file_path, pass = nil )
-	
+
 		file_path	= File.expand_path( file_path )
 		file_path	= file_path.gsub( "\\", "/" )
 		if( pass == nil )
@@ -57,23 +57,23 @@ module Excel
 			return ( excel.workbooks.open( {'filename'=> file_path, 'updatelinks'=> 0, 'password'=>"#{pass}"}) )
 		end
 	end
-	
+
 	#----------------------------------------------
 	# @biref	指定した名前のシートがあるか
 	#----------------------------------------------
 	def Excel.existSheet( wb, sheet_name )
 
         # シート名のチェック
-        sheet_name = sheet_name.encode( "Windows-31J" )        
+        sheet_name = sheet_name.encode( "Windows-31J" )
 		is_exist_sheet = false
 		wb.worksheets.each { |ws|
 
 			if( ws.name == sheet_name )
 				return true
-			end		
+			end
 		}
 
-		print_wb_name	 = wb.name.encode( "UTF-8" )		
+		print_wb_name	 = wb.name.encode( "UTF-8" )
 		print_sheet_name = sheet_name.encode( "UTF-8" )
 		error_str	=	"「#{print_wb_name}」に「#{print_sheet_name}」シートがありません。\n"
 		error_str	+= "シートが存在するか\n"
@@ -81,7 +81,7 @@ module Excel
 		assertLogPrintFalse( error_str )
 		return false
 	end
-	
+
 	#----------------------------------------------
 	# @biref	指定した文字列の列番号を返す
 	# @parm		ws			ワークシート
@@ -94,7 +94,7 @@ module Excel
 
 		#文字列の検索
 		search_result = ws.Rows(search_row).Find('What' => search_str)
-		
+
 		#検索結果
 		if (search_result == nil) then
 #			p "Not FoundName !!" + "『" + search_str + "』"
@@ -117,7 +117,7 @@ module Excel
 
 		#文字列の検索
 		search_result = ws.Columns(search_column).Find('What' => search_str)
-		
+
 		#検索結果
 		if (search_result == nil) then
 #			p "Not FoundName !!" + "『" + search_str + "』"
@@ -138,10 +138,10 @@ module Excel
 
 		range_str = "#{range_st_colmn}#{range_st_row}:"
 		range_str += "#{range_st_colmn}#{row_count-1}"
-		
+
 		return range_str
 	end
-	
+
 	#----------------------------------------------
 	# @biref	指定したパラメータのデータを返す
 	# @parm		ws			ワークシート
@@ -233,7 +233,7 @@ module Excel
 	def Excel.rangeCopy( src_ws, src_range, dst_ws, dst_range )
 
 		dst_ws.range( "#{dst_range}" ).Value = src_ws.range( "#{src_range}" ).Value
-	end	
+	end
 
 	#----------------------------------------------
 	# @biref	指定文字列に色をつける
@@ -244,14 +244,14 @@ module Excel
 	# @parm		color_str		src_strの中で色をつけたい文字列
 	#----------------------------------------------
 	def Excel.setStringColor( ws, cell_row, cell_clumn, src_str, color_str )
-	
+
 		# 文字色を赤色にする
 		prefix_str_index = src_str.index( color_str ) + 1
 		color_str_length = color_str.length
 		ws.Cells.Item( cell_row, cell_clumn ).Characters( {'Start' => prefix_str_index, 'Length' => color_str_length}).Font.ColorIndex = 3
 	end
 
-	
+
 	#----------------------------------------------
 	# @biref	Excel のデフォルトのシートを削除
 	# @parm		wb		ワークブック
@@ -260,7 +260,7 @@ module Excel
 		(1..3).each{|num|
 			ws = wb.worksheets("Sheet#{num}")
 			if( ws != nil)
-				ws.delete()			
+				ws.delete()
 			end
 		}
 	end
@@ -274,7 +274,7 @@ module Excel
 
 		# シートをアクティブに
 		ws.Activate
-		
+
 		# シート全体を選択
 		ws.Cells.Select
 
@@ -292,7 +292,7 @@ module Excel
 	#----------------------------------------------
 	def Excel.resetData(ws, search_str, set_str)
 		p "resetData()"
-		
+
 		# 検索
 		foundCell = ws.Cells.Find('What' => search_str)
 	#                        What:=search_str, _
@@ -301,7 +301,7 @@ module Excel
 	#                        SearchOrder:=xlByRows, _
 	#                        MatchCase:=False, _
 	#                        MatchByte:=False)
-	
+
 		# 最初のセルを記憶
 		if foundCell == nil
 			p "not found rewright data...."
@@ -311,15 +311,15 @@ module Excel
 		end
 
 		cellList = []
-		
+
 		# 最初のセルになるまでループ
 		begin
 			# セルをリストへ
-			cellList.push(foundCell)			
+			cellList.push(foundCell)
 
 			# 見つかったセルの次のセルを検索。最終的には最初に戻ってくる
 			foundCell = ws.Cells.FindNext(foundCell)
-		
+
 		end while (foundCell.Address != firstCell.Address)
 
 		# 最初のセルになるまでループ
@@ -330,6 +330,5 @@ module Excel
 			ws.Cells.Item(cell.Row, cell.Column).Value = set_str
 		}
 	end
-	   
+
 end
- 
