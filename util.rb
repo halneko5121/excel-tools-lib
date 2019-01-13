@@ -241,10 +241,11 @@ end
 
 #----------------------------------------------
 # 数値（年+月） を 「年」「月」に分けて返す（文字列）
+# 例:201801 => [2018][01]
 #----------------------------------------------
-def getSplitCalendar( value )
+def splitYearMonth( year_and_month )
 
-	calendar = value.to_s
+	calendar = year_and_month.to_s
 	return calendar.unpack("a4a2")	# 4文字 / 2文字に分割
 end
 
