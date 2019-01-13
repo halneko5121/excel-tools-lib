@@ -297,7 +297,7 @@ module Excel
 			assertLogPrintFalse( "not found rewright data..." )
 			return
 		else
-			firstCell = found_cell
+			first_cell = found_cell
 		end
 
 		cellList = []
@@ -310,7 +310,7 @@ module Excel
 			# 見つかったセルの次のセルを検索。最終的には最初に戻ってくる
 			found_cell = ws.Cells.FindNext(found_cell)
 
-		end while (found_cell.Address != firstCell.Address)
+		end while (found_cell.Address != first_cell.Address)
 
 		# 最初のセルになるまでループ
 		p "found_cell => #{cellList.size}"
