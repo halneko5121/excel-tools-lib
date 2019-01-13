@@ -143,6 +143,17 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定したセルのデータを返す
+	# @param	ws			ワークシート
+	# @param	row_index	行番号
+	# @param	column_index	列番号
+	# @return	データ
+	#----------------------------------------------
+	def Excel.getCellValue(ws, row_index = 1, column_index = 1)
+		return ws.Cells.Item(row_index, column_index).Value
+	end
+
+	#----------------------------------------------
 	# @biref	指定したセルのデータを返す（列名指定ver）
 	# @param	ws			ワークシート
 	# @param	row_index	行番号
@@ -152,17 +163,6 @@ module Excel
 	def Excel.getCellValueWithColumnName(ws, row_index, column_name)
 
 		column_index = getColumn( ws, "#{column_name}" )
-		return ws.Cells.Item(row_index, column_index).Value
-	end
-
-	#----------------------------------------------
-	# @biref	指定したセルのデータを返す
-	# @param	ws			ワークシート
-	# @param	row_index	行番号
-	# @param	column_index	列番号
-	# @return	データ
-	#----------------------------------------------
-	def Excel.getCellValue(ws, row_index = 1, column_index = 1)
 		return ws.Cells.Item(row_index, column_index).Value
 	end
 
