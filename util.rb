@@ -294,6 +294,7 @@ def isWeekday( w_day )
 		return false
 	else
 		return true
+	end
 end
 
 #----------------------------------------------
@@ -305,4 +306,5 @@ def isWeekend( w_day )
 		return false
 	else
 		return true
+	end
 end
