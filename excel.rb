@@ -163,8 +163,6 @@ module Excel
 	# @return	データ
 	#----------------------------------------------
 	def Excel.getCellValue(ws, row_index = 1, column_index = 1)
-	#	p "getCellValue()"
-
 		return ws.Cells.Item(row_index, column_index).Value
 	end
 
