@@ -149,7 +149,7 @@ module Excel
 	# @param	row_index	行番号
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getParamValue(ws, param_name = "", row_index = 1)
+	def Excel.getParamValue(ws, param_name, row_index)
 
 		column_index = getColumn( ws, "#{param_name}" )
 		return ws.Cells.Item(row_index, column_index).Value
