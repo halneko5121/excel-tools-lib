@@ -221,6 +221,19 @@ def allClearFile( root_dir, search_pattern )
 	end
 end
 
+#----------------------------------------------
+# 指定年月がうるう年か
+# @param	year			年
+# @param	month_num		月（1 ~ 12）
+#----------------------------------------------
+def isLeapYear( year, month_num )
+	if( month_num == 2 && Date.new( year ).leap? )
+		return true
+	end
+
+	return false
+end
+
 # --------------------------------------------
 # 指定年月の日数を返す
 # @param	year			年
@@ -232,7 +245,7 @@ def getMonthlyDayCount( year, month_num )
 	monthly_days = MONTH_DAYS[ month_num - 1 ] # [0始まり] と [1始まり] の帳尻合わせ
 
 	# 閏年を考慮
-	if( month_num == 2 && Date.new( year ).leap? )
+	if( isLeapYear( year, month_num ) )
 		monthly_days += 1
 	end
 
