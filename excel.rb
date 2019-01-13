@@ -294,7 +294,7 @@ module Excel
 
 		# 最初のセルを記憶
 		if foundCell == nil
-			p "not found rewright data...."
+			assertLogPrintFalse( "not found rewright data..." )
 			return
 		else
 			firstCell = foundCell
