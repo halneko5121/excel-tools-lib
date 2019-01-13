@@ -66,7 +66,7 @@ module Excel
 	def Excel.existSheet( wb, sheet_name )
 
         # シート名のチェック
-        sheet_name = sheet_name.encode( "Windows-31J" )
+        sheet_name = sheet_name.encode( Encoding::WINDOWS_31J )
 		is_exist_sheet = false
 		wb.worksheets.each { |ws|
 			if( ws.name == sheet_name )
@@ -74,8 +74,8 @@ module Excel
 			end
 		}
 
-		print_wb_name	 = wb.name.encode( "UTF-8" )
-		print_sheet_name = sheet_name.encode( "UTF-8" )
+		print_wb_name	 = wb.name.encode( Encoding::UTF_8 )
+		print_sheet_name = sheet_name.encode( Encoding::UTF_8 )
 		error_str	=	"「#{print_wb_name}」に「#{print_sheet_name}」シートがありません。\n"
 		error_str	+= "シートが存在するか\n"
 		error_str	+= "シート名が「#{print_sheet_name}」になっているかお確かめ下さい"
@@ -87,7 +87,7 @@ module Excel
 	# @biref	指定した文字列の列番号を返す
 	# @param	ws			ワークシート
 	# @param	search_str	チェックするフィールド名
-	# @param	search_row	フィールド（1行目のはず）
+	# @param	search_row	フィールドは1行目のはず
 	# @return	列番号
 	#----------------------------------------------
 	def Excel.getColumn(ws, search_str ="", search_row = 1)
