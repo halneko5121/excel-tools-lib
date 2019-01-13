@@ -284,10 +284,11 @@ def calcWeekDay( year, month, day )
 end
 
 #----------------------------------------------
-# 指定曜日が平日か（祝日考慮しない）
+# 指定年月日が平日か（祝日考慮しない）
 #----------------------------------------------
-def isWeekday( w_day )
+def isWeekday( year, month, day )
 
+	w_day = calcWeekDay( year, month, day )
 	if( w_day == "日" )      # 日曜
 		return false
 	elsif( w_day == "土" )   # 土曜
@@ -298,11 +299,11 @@ def isWeekday( w_day )
 end
 
 #----------------------------------------------
-# 指定曜日が週末か（祝日考慮しない）
+# 指定年月日が週末か（祝日考慮しない）
 #----------------------------------------------
-def isWeekend( w_day )
+def isWeekend( year, month, day )
 
-	if( isWeekday(w_day) )
+	if( isWeekday( year, month, day ) )
 		return false
 	else
 		return true
