@@ -13,12 +13,12 @@ module Excel
 	# @parm		displayAlerts	false で特定の警告やメッセージを表示しない
 	# @return	Excel オブジェクト
 	#----------------------------------------------
-	def Excel.new(visible = true, displayAlerts = false)
+	def Excel.new(visible = false, displayAlerts = false)
 		excel = WIN32OLE.new_with_const('Excel.Application', Excel)
 		excel.visible = visible
 		excel.displayAlerts = displayAlerts
 		excel.screenUpdating = false					# 画面更新表示/非表示(visibleと合わせて設定する)
-#		excel.calculation = Excel::XlCCalculationManual	# 再計算を手動でやる（自動の再計算を止める）
+#		excel.calculation = Excel::XlCalculationManual	# 再計算を手動でやる（自動の再計算を止める）
 		return excel
 	end
 
@@ -29,7 +29,7 @@ module Excel
 	# @parm		block			ブロック引数
 	# @note		ランタイムエラーが起こった場合Excelを終了します
 	#----------------------------------------------
-	def Excel.runDuring(visible = true, displayAlerts = false, &block) 
+	def Excel.runDuring(visible = false, displayAlerts = false, &block)
 		begin
 			excel = new(visible, displayAlerts)
 			block.call(excel)
