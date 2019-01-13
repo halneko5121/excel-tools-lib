@@ -114,7 +114,6 @@ module Excel
 	# @return	列番号
 	#----------------------------------------------
 	def Excel.getRow(ws, search_column, search_str )
-	#	p "getRow()"
 
 		#文字列の検索
 		search_result = ws.Columns(search_column).Find('What' => search_str)
