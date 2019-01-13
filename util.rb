@@ -271,3 +271,27 @@ def getYearNumberHeisei( year )
 	year_number_array = year.unpack("a1a3")
 	return ( year_number_array[1].to_i + 12 )
 end
+
+#----------------------------------------------
+# 指定曜日が平日か（祝日考慮しない）
+#----------------------------------------------
+def isWeekday( w_day )
+
+	if( w_day == "日" )      # 日曜
+		return false
+	elsif( w_day == "土" )   # 土曜
+		return false
+	else
+		return true
+end
+
+#----------------------------------------------
+# 指定曜日が週末か（祝日考慮しない）
+#----------------------------------------------
+def isWeekend( w_day )
+
+	if( isWeekday(w_day) )
+		return false
+	else
+		return true
+end
