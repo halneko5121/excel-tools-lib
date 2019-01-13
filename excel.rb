@@ -92,10 +92,10 @@ module Excel
 	#----------------------------------------------
 	def Excel.getColumn(ws, search_str ="", search_row = 1)
 
-		#文字列の検索
+		# 文字列の検索
 		search_result = ws.Rows(search_row).Find('What' => search_str)
 
-		#検索結果
+		# 検索結果
 		if (search_result == nil) then
 #			p "Not FoundName !!" + "『" + search_str + "』"
 			p "Not FoundName !!"
