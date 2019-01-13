@@ -145,11 +145,11 @@ module Excel
 	#----------------------------------------------
 	# @biref	指定したパラメータのデータを返す
 	# @param	ws			ワークシート
-	# @param	row_index	行番号
 	# @param	param_name	パラメータ名(1行目前提)
+	# @param	row_index	行番号
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getParamValue(ws, row_index = 1, param_name = "")
+	def Excel.getParamValue(ws, param_name = "", row_index = 1)
 
 		column_index = getColumn( ws, "#{param_name}" )
 		return ws.Cells.Item(row_index, column_index).Value
