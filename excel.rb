@@ -109,7 +109,7 @@ module Excel
 	#----------------------------------------------
 	# @biref	指定した文字列の行番号を返す
 	# @param	ws				ワークシート
-	# @param	search_column	検索する行番号
+	# @param	search_column	検索する列番号
 	# @param	search_str		チェックするフィールド名
 	# @return	列番号
 	#----------------------------------------------
