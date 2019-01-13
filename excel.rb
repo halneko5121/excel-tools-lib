@@ -17,7 +17,7 @@ module Excel
 		excel = WIN32OLE.new_with_const('Excel.Application', Excel)
 		excel.visible = visible
 		excel.displayAlerts = displayAlerts
-		excel.screenUpdating = false					# 画面更新表示/非表示(visibleと合わせて設定する)
+		excel.screenUpdating = visible					# 画面更新表示/非表示(visibleと合わせて設定する)
 #		excel.calculation = Excel::XlCalculationManual	# 再計算を手動でやる（自動の再計算を止める）
 		return excel
 	end
