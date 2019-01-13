@@ -115,10 +115,10 @@ module Excel
 	#----------------------------------------------
 	def Excel.getRow(ws, search_str, search_column)
 
-		#文字列の検索
+		# 文字列の検索
 		search_result = ws.Columns(search_column).Find('What' => search_str)
 
-		#検索結果
+		# 検索結果
 		if (search_result == nil) then
 			utf_search_str	= search_str.encode( Encoding::UTF_8 )
 			error_str		= "Not Found Row Name !! 『#{utf_search_str}』"
