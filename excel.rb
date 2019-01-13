@@ -90,7 +90,7 @@ module Excel
 	# @param	search_row	フィールド（は1行目のはず）
 	# @return	列番号
 	#----------------------------------------------
-	def Excel.getColumn(ws, search_str ="", search_row = 1)
+	def Excel.getColumn(ws, search_str = "", search_row = 1)
 
 		# 文字列の検索
 		search_result = ws.Rows(search_row).Find('What' => search_str)
@@ -149,7 +149,7 @@ module Excel
 	# @param	param_name	パラメータ名(1行目前提)
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getParamValue(ws, row_index =1, param_name ="")
+	def Excel.getParamValue(ws, row_index = 1, param_name = "")
 
 		clumn_index = getColumn( ws, "#{param_name}" )
 		return ws.Cells.Item(row_index, clumn_index).Value
@@ -162,7 +162,7 @@ module Excel
 	# @param	clumn_index	列番号
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getCellValue(ws, row_index =1, clumn_index = 1)
+	def Excel.getCellValue(ws, row_index = 1, clumn_index = 1)
 	#	p "getCellValue()"
 
 		return ws.Cells.Item(row_index, clumn_index).Value
