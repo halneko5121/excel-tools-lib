@@ -144,8 +144,8 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定したセルのデータを返す
-	# @param	ws			ワークシート
-	# @param	row_index	行番号
+	# @param	ws				ワークシート
+	# @param	row_index		行番号
 	# @param	column_index	列番号
 	# @return	データ
 	#----------------------------------------------
@@ -155,9 +155,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定したセルのデータを返す（列名指定ver）
-	# @param	ws			ワークシート
-	# @param	row_index	行番号
-	# @param	column_name	列名(1行目前提)
+	# @param	ws				ワークシート
+	# @param	row_index		行番号
+	# @param	column_name		列名(1行目前提)
 	# @return	データ
 	#----------------------------------------------
 	def Excel.getCellValueWithColumnName(ws, row_index, column_name)
