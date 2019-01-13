@@ -235,16 +235,16 @@ module Excel
 	# @biref	指定文字列に色をつける
 	# @param	ws				ワークシート
 	# @param	cell_row		セルの行番号
-	# @param	cell_clumn		セルの列番号
+	# @param	cell_column		セルの列番号
 	# @param	src_str			文字列
 	# @param	color_str		src_strの中で色をつけたい文字列
 	#----------------------------------------------
-	def Excel.setStringColor( ws, cell_row, cell_clumn, src_str, color_str )
+	def Excel.setStringColor( ws, cell_row, cell_column, src_str, color_str )
 
 		# 文字色を赤色にする
 		prefix_str_index = src_str.index( color_str ) + 1
 		color_str_length = color_str.length
-		ws.Cells.Item( cell_row, cell_clumn ).Characters( {'Start' => prefix_str_index, 'Length' => color_str_length}).Font.ColorIndex = 3
+		ws.Cells.Item( cell_row, cell_column ).Characters( {'Start' => prefix_str_index, 'Length' => color_str_length}).Font.ColorIndex = 3
 	end
 
 	#----------------------------------------------
