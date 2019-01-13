@@ -300,9 +300,8 @@ module Excel
 			first_cell = found_cell
 		end
 
-		cellList = []
-
 		# 最初のセルになるまでループ
+		cellList = []
 		begin
 			# セルをリストへ
 			cellList.push(found_cell)
