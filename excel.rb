@@ -251,7 +251,6 @@ module Excel
 		ws.Cells.Item( cell_row, cell_clumn ).Characters( {'Start' => prefix_str_index, 'Length' => color_str_length}).Font.ColorIndex = 3
 	end
 
-
 	#----------------------------------------------
 	# @biref	Excel のデフォルトのシートを削除
 	# @param	wb		ワークブック
