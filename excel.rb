@@ -252,6 +252,8 @@ module Excel
 	# @param	wb		ワークブック
 	#----------------------------------------------
 	def Excel.deleteDefaultSheet( wb )
+
+		# [Sheet1][Sheet2][Sheet3] を削除
 		(1..3).each{|num|
 			ws = wb.worksheets("Sheet#{num}")
 			if( ws != nil)
@@ -263,7 +265,6 @@ module Excel
 	#----------------------------------------------
 	# @biref	シート全体を自動調整
 	# @param    ws  自動調整したいワークシート
-	# @return   NULL
 	#----------------------------------------------
 	def Excel.autoFitDataRange(ws)
 
