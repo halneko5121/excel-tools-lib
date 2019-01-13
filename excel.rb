@@ -34,11 +34,14 @@ module Excel
 			excel = new(visible, displayAlerts)
 			block.call(excel)
 		ensure
-#			excel.visible = true	
-#			excel.displayAlerts = true
-#			excel.screenUpdating = true
-#			excel.Calculation = Excel::XlCalculationAutomatic
-			excel.Quit 
+			puts "excel new error"
+			if( excel != nil )
+				excel.visible = true
+				excel.displayAlerts = true
+				excel.screenUpdating = true
+#				excel.Calculation = Excel::XlCalculationAutomatic
+				excel.Quit
+			end
 		end
 	end
 
