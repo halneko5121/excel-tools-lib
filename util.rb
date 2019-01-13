@@ -114,12 +114,12 @@ end
 
 def assertLogPrintNotFoundFile( file_path )
 
-		file_path = File.expand_path( file_path )
-		if( File.exist?( file_path ) == false )
-			error_str = "#{File.basename( file_path )} がありません\n"
-			error_str += "パス詳細 => #{file_path}"
-			assertLogPrintFalse( "#{error_str}" )
-		end
+	file_path = File.expand_path( file_path )
+	if( File.exist?( file_path ) == false )
+		error_str = "#{File.basename( file_path )} がありません\n"
+		error_str += "パス詳細 => #{file_path}"
+		assertLogPrintFalse( "#{error_str}" )
+	end
 end
 
 # --------------------------------------------
