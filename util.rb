@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
 require 'benchmark'
+require "date"
 
 IS_DEBUG = true	# デバッグ機能を利用する際に使用する
 
 # 月ごとの日数
 MONTH_DAYS = [ 31, 28, 31, 30, 31, 30,
 			   31, 31, 30, 31, 30, 31 ]
+# 曜日
+WDAYS = ["日", "月", "火", "水", "木", "金", "土"]
 
 if( IS_DEBUG == true )
 	def dbgPrint( *args )
@@ -270,6 +273,14 @@ def getYearNumberHeisei( year )
 	# year を 1文字 / 3文字に分割 => 下三桁に12を加算
 	year_number_array = year.unpack("a1a3")
 	return ( year_number_array[1].to_i + 12 )
+end
+
+#----------------------------------------------
+# 年月日から曜日を算出
+#----------------------------------------------
+def calcWeekDay( year, month, day )
+	time = Time.mktime( year, month, day )
+	return WDAYS[ time.wday ]
 end
 
 #----------------------------------------------
