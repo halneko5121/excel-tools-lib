@@ -143,15 +143,15 @@ module Excel
 	end
 
 	#----------------------------------------------
-	# @biref	指定したパラメータのデータを返す
+	# @biref	指定したセルのデータを返す（列名指定ver）
 	# @param	ws			ワークシート
 	# @param	row_index	行番号
-	# @param	param_name	パラメータ名(1行目前提)
+	# @param	column_name	列名(1行目前提)
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getParamValue(ws, row_index, param_name)
+	def Excel.getCellValueWithColumnName(ws, row_index, column_name)
 
-		column_index = getColumn( ws, "#{param_name}" )
+		column_index = getColumn( ws, "#{column_name}" )
 		return ws.Cells.Item(row_index, column_index).Value
 	end
 
