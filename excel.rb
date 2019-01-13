@@ -291,12 +291,6 @@ module Excel
 
 		# 検索
 		foundCell = ws.Cells.Find('What' => search_str)
-	#                        What:=search_str, _
-	#                        LookIn:=xlValues, _
-	#                        LookAt:=xlWhole, _
-	#                        SearchOrder:=xlByRows, _
-	#                        MatchCase:=False, _
-	#                        MatchByte:=False)
 
 		# 最初のセルを記憶
 		if foundCell == nil
