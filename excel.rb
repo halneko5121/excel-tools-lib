@@ -131,14 +131,14 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Range　の文字列を算出する（開始セルと行数から）
-	# @param	range_st_colmn	Range　開始列名
+	# @param	range_st_column	Range　開始列名
 	# @param	range_st_row	Range　開始行名
 	# @param	row_count		行数
 	#----------------------------------------------
-	def Excel.calcRangeStr( range_st_colmn, range_st_row, row_count )
+	def Excel.calcRangeStr( range_st_column, range_st_row, row_count )
 
-		range_str = "#{range_st_colmn}#{range_st_row}:"
-		range_str += "#{range_st_colmn}#{row_count-1}"
+		range_str = "#{range_st_column}#{range_st_row}:"
+		range_str += "#{range_st_column}#{row_count-1}"
 
 		return range_str
 	end
