@@ -16,22 +16,22 @@ module Excel
 	def Excel.new(visible = true, displayAlerts = false)
 		excel = WIN32OLE.new_with_const('Excel.Application', Excel)
 		excel.visible = visible
-		excel.displayAlerts = displayAlerts 
+		excel.displayAlerts = displayAlerts
 		excel.screenUpdating = false
 #		excel.calculation = Excel::XlCalculationManual
 		return excel 
 	end
 
 	#----------------------------------------------
-	# @biref	Excel の起動と終了のEAM 
+	# @biref	Excel の起動と終了のEAM（Execute Around Method）
 	# @parm		visible			false でバックグラウンドでexcel起動
 	# @parm		displayAlerts	false で特定の警告やメッセージを表示しない
 	# @parm		block			ブロック引数
-	# @note		ランタイムエラーが起こった場合Excel終了します
+	# @note		ランタイムエラーが起こった場合Excelを終了します
 	#----------------------------------------------
 	def Excel.runDuring(visible = true, displayAlerts = false, &block) 
 		begin
-			excel = new(visible, displayAlerts) 
+			excel = new(visible, displayAlerts)
 			block.call(excel)
 		ensure
 #			excel.visible = true	
