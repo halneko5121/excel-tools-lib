@@ -151,21 +151,21 @@ module Excel
 	#----------------------------------------------
 	def Excel.getParamValue(ws, row_index = 1, param_name = "")
 
-		clumn_index = getColumn( ws, "#{param_name}" )
-		return ws.Cells.Item(row_index, clumn_index).Value
+		column_index = getColumn( ws, "#{param_name}" )
+		return ws.Cells.Item(row_index, column_index).Value
 	end
 
 	#----------------------------------------------
 	# @biref	指定したセルのデータを返す
 	# @param	ws			ワークシート
 	# @param	row_index	行番号
-	# @param	clumn_index	列番号
+	# @param	column_index	列番号
 	# @return	データ
 	#----------------------------------------------
-	def Excel.getCellValue(ws, row_index = 1, clumn_index = 1)
+	def Excel.getCellValue(ws, row_index = 1, column_index = 1)
 	#	p "getCellValue()"
 
-		return ws.Cells.Item(row_index, clumn_index).Value
+		return ws.Cells.Item(row_index, column_index).Value
 	end
 
 	#----------------------------------------------
