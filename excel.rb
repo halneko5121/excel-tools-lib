@@ -10,8 +10,8 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel オブジェクトを生成する
-	# @parm		visible			false でバックグラウンドでexcel起動
-	# @parm		display_alerts	false で特定の警告やメッセージを表示しない
+	# @param	visible			false でバックグラウンドでexcel起動
+	# @param	display_alerts	false で特定の警告やメッセージを表示しない
 	# @return	Excel オブジェクト
 	#----------------------------------------------
 	def Excel.new(visible = false, display_alerts = false)
@@ -25,9 +25,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel の起動と終了のEAM（Execute Around Method）
-	# @parm		visible			false でバックグラウンドでexcel起動
-	# @parm		displayAlerts	false で特定の警告やメッセージを表示しない
-	# @parm		block			ブロック引数
+	# @param	visible			false でバックグラウンドでexcel起動
+	# @param	displayAlerts	false で特定の警告やメッセージを表示しない
+	# @param	block			ブロック引数
 	# @note		ランタイムエラーが起こった場合Excelを終了します
 	#----------------------------------------------
 	def Excel.runDuring(visible = false, display_alerts = false, &block)
@@ -85,9 +85,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定した文字列の列番号を返す
-	# @parm		ws			ワークシート
-	# @parm		search_str	チェックするフィールド名
-	# @parm		search_row	フィールドは1行目
+	# @param	ws			ワークシート
+	# @param	search_str	チェックするフィールド名
+	# @param	search_row	フィールドは1行目
 	# @return	列番号
 	#----------------------------------------------
 	def Excel.getColumn(ws, search_str ="", search_row = 1)
@@ -108,9 +108,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定した文字列の行番号を返す
-	# @parm		ws				ワークシート
-	# @parm		search_column	検索する行番号
-	# @parm		search_str		チェックするフィールド名
+	# @param	ws				ワークシート
+	# @param	search_column	検索する行番号
+	# @param	search_str		チェックするフィールド名
 	# @return	列番号
 	#----------------------------------------------
 	def Excel.getRow(ws, search_column, search_str )
@@ -131,9 +131,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Range　の文字列を算出する（開始セルと行数から）
-	# @parm		range_st_colmn	Range　開始列名
-	# @parm		range_st_row	Range　開始行名
-	# @parm		row_count		行数
+	# @param	range_st_colmn	Range　開始列名
+	# @param	range_st_row	Range　開始行名
+	# @param	row_count		行数
 	#----------------------------------------------
 	def Excel.calcRangeStr( range_st_colmn, range_st_row, row_count )
 
@@ -145,9 +145,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定したパラメータのデータを返す
-	# @parm		ws			ワークシート
-	# @parm		row_index	行番号
-	# @parm		param_name	パラメータ名(1行目前提)
+	# @param	ws			ワークシート
+	# @param	row_index	行番号
+	# @param	param_name	パラメータ名(1行目前提)
 	# @return	データ
 	#----------------------------------------------
 	def Excel.getParamValue(ws, row_index =1, param_name ="")
@@ -158,9 +158,9 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定したセルのデータを返す
-	# @parm		ws			ワークシート
-	# @parm		row_index	行番号
-	# @parm		clumn_index	列番号
+	# @param	ws			ワークシート
+	# @param	row_index	行番号
+	# @param	clumn_index	列番号
 	# @return	データ
 	#----------------------------------------------
 	def Excel.getCellValue(ws, row_index =1, clumn_index = 1)
@@ -171,10 +171,10 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel シートコピー
-	# @parm		src_wb			コピー元のワークブック
-	# @parm		src_ws_name		コピー元のワークシートネーム
-	# @parm		dst_wb			コピー先のワークブック
-	# @parm		dst_ws_number	コピー先のワークシート番号
+	# @param	src_wb			コピー元のワークブック
+	# @param	src_ws_name		コピー元のワークシートネーム
+	# @param	dst_wb			コピー先のワークブック
+	# @param	dst_ws_number	コピー先のワークシート番号
 	#----------------------------------------------
 	def Excel.sheetCopy( src_wb, src_ws_name, dst_wb, dst_ws_number )
 
@@ -188,10 +188,10 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel シートコピー(シート番号指定版)
-	# @parm		src_wb			コピー元のワークブック
-	# @parm		src_ws_number	コピー元のワークシート番号
-	# @parm		dst_wb			コピー先のワークブック
-	# @parm		dst_ws_number	コピー先のワークシート番号
+	# @param	src_wb			コピー元のワークブック
+	# @param	src_ws_number	コピー元のワークシート番号
+	# @param	dst_wb			コピー先のワークブック
+	# @param	dst_ws_number	コピー先のワークシート番号
 	#----------------------------------------------
 	def Excel.sheetCopyNumber( src_wb, src_ws_number, dst_wb, dst_ws_number )
 
@@ -201,10 +201,10 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel 行コピー＆ペースト(挿入)
-	# @parm		src_ws		コピー元のワークシート
-	# @parm		src_row		コピー元の行番号
-	# @parm		dst_ws		コピー先のワークシート
-	# @parm		dst_row		コピー先の行番号
+	# @param	src_ws		コピー元のワークシート
+	# @param	src_row		コピー元の行番号
+	# @param	dst_ws		コピー先のワークシート
+	# @param	dst_row		コピー先の行番号
 	#----------------------------------------------
 	def Excel.rowCopyAndInsert( src_ws, src_row, dst_ws, dst_row )
 
@@ -215,10 +215,10 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel 範囲コピー（高速版）
-	# @parm		src_ws		コピー元のワークシート
-	# @parm		src_range	コピー元の範囲指定
-	# @parm		dst_ws		コピー先のワークシート
-	# @parm		dst_range	コピー先の範囲指定
+	# @param	src_ws		コピー元のワークシート
+	# @param	src_range	コピー元の範囲指定
+	# @param	dst_ws		コピー先のワークシート
+	# @param	dst_range	コピー先の範囲指定
 	#----------------------------------------------
 	def Excel.rangeCopyFast( src_ws, src_range, dst_ws, dst_range )
 		src_ws.range( src_range ).copy( {'Destination'=> dst_ws.range( dst_range )} )
@@ -226,10 +226,10 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel 範囲コピー
-	# @parm		src_ws		コピー元のワークシート
-	# @parm		src_range	コピー元の範囲指定
-	# @parm		dst_ws		コピー先のワークシート
-	# @parm		dst_range	コピー先の範囲指定
+	# @param	src_ws		コピー元のワークシート
+	# @param	src_range	コピー元の範囲指定
+	# @param	dst_ws		コピー先のワークシート
+	# @param	dst_range	コピー先の範囲指定
 	#----------------------------------------------
 	def Excel.rangeCopy( src_ws, src_range, dst_ws, dst_range )
 
@@ -238,11 +238,11 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	指定文字列に色をつける
-	# @parm		ws				ワークシート
-	# @parm		cell_row		セルの行番号
-	# @parm		cell_clumn		セルの列番号
-	# @parm		src_str			文字列
-	# @parm		color_str		src_strの中で色をつけたい文字列
+	# @param	ws				ワークシート
+	# @param	cell_row		セルの行番号
+	# @param	cell_clumn		セルの列番号
+	# @param	src_str			文字列
+	# @param	color_str		src_strの中で色をつけたい文字列
 	#----------------------------------------------
 	def Excel.setStringColor( ws, cell_row, cell_clumn, src_str, color_str )
 
@@ -255,7 +255,7 @@ module Excel
 
 	#----------------------------------------------
 	# @biref	Excel のデフォルトのシートを削除
-	# @parm		wb		ワークブック
+	# @param	wb		ワークブック
 	#----------------------------------------------
 	def Excel.deleteDefaultSheet( wb )
 		(1..3).each{|num|
