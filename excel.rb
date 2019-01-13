@@ -7,8 +7,6 @@ require File.expand_path( File.dirname(__FILE__) + '/win32ole-ext.rb' )
 
 module Excel
 
-#	excel.ActiveCell.Offset(0, -1).Activate
-
 	#----------------------------------------------
 	# @biref	Excel オブジェクトを生成する
 	# @parm		visible			false でバックグラウンドでexcel起動
