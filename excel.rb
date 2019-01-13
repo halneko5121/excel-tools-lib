@@ -248,6 +248,25 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定曜日が土日の際にシート色をつける
+	# @param	ws		ワークシート
+	# @param	w_da	曜日
+	#----------------------------------------------
+	def Excel.setSheetColorWithWeekend( ws, w_day )
+
+		# 日曜
+		if( w_day == "日" )
+			ws.Tab.ColorIndex = 3
+		# 土曜
+		elsif( w_day == "土" )
+			ws.Tab.ColorIndex = 5
+		# それ以外
+		else
+			ws.Tab.ColorIndex = Excel::XlNone
+		end
+	end
+
+	#----------------------------------------------
 	# @biref	Excel のデフォルトのシートを削除
 	# @param	wb		ワークブック
 	#----------------------------------------------
