@@ -87,7 +87,7 @@ module Excel
 	# @biref	指定した文字列の列番号を返す
 	# @param	ws			ワークシート
 	# @param	search_str	チェックするフィールド名
-	# @param	search_row	フィールドは1行目
+	# @param	search_row	フィールド（1行目のはず）
 	# @return	列番号
 	#----------------------------------------------
 	def Excel.getColumn(ws, search_str ="", search_row = 1)
