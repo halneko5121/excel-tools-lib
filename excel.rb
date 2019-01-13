@@ -37,9 +37,9 @@ module Excel
 		ensure
 			puts "excel new error"
 			if( excel != nil )
-				excel.visible = true
-				excel.displayAlerts = true
-				excel.screenUpdating = true
+#				excel.visible = true
+#				excel.displayAlerts = true
+#				excel.screenUpdating = true
 #				excel.Calculation = Excel::XlCalculationAutomatic
 				excel.Quit
 			end
