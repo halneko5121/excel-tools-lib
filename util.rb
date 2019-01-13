@@ -181,8 +181,8 @@ end
 
 #----------------------------------------------
 # パターンにマッチするファイルの検索
-# @parm		root_dir		検索のルートパス
-# @parm		search_pattern	検索パターン
+# @param	root_dir		検索のルートパス
+# @param	search_pattern	検索パターン
 # @return	ファイルリスト
 #----------------------------------------------
 def getSearchFile( root_dir, search_pattern )
@@ -204,8 +204,8 @@ end
 
 # --------------------------------------------
 # 出力フォルダのファイルを削除
-# @parm		root_dir		検索のルートパス
-# @parm		search_pattern	検索パターン
+# @param	root_dir		検索のルートパス
+# @param	search_pattern	検索パターン
 # --------------------------------------------
 def allClearFile( root_dir, search_pattern )
 
@@ -223,8 +223,8 @@ end
 
 # --------------------------------------------
 # 指定月の日数を返す
-# @parm		root_dir		検索のルートパス
-# @parm		search_pattern	検索パターン
+# @param	root_dir		検索のルートパス
+# @param	search_pattern	検索パターン
 # --------------------------------------------
 def getMonthlyDayCount( month_num )
 
