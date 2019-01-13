@@ -250,7 +250,7 @@ module Excel
 	#----------------------------------------------
 	# @biref	指定曜日が土日の際にシート色をつける
 	# @param	ws		ワークシート
-	# @param	w_da	曜日
+	# @param	w_day	曜日
 	#----------------------------------------------
 	def Excel.setSheetColorWithWeekend( ws, w_day )
 
