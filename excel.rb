@@ -290,14 +290,14 @@ module Excel
 		p "resetData()"
 
 		# 検索
-		foundCell = ws.Cells.Find('What' => search_str)
+		found_cell = ws.Cells.Find('What' => search_str)
 
 		# 最初のセルを記憶
-		if foundCell == nil
+		if found_cell == nil
 			assertLogPrintFalse( "not found rewright data..." )
 			return
 		else
-			firstCell = foundCell
+			firstCell = found_cell
 		end
 
 		cellList = []
@@ -305,15 +305,15 @@ module Excel
 		# 最初のセルになるまでループ
 		begin
 			# セルをリストへ
-			cellList.push(foundCell)
+			cellList.push(found_cell)
 
 			# 見つかったセルの次のセルを検索。最終的には最初に戻ってくる
-			foundCell = ws.Cells.FindNext(foundCell)
+			found_cell = ws.Cells.FindNext(found_cell)
 
-		end while (foundCell.Address != firstCell.Address)
+		end while (found_cell.Address != firstCell.Address)
 
 		# 最初のセルになるまでループ
-		p "foundCell => #{cellList.size}"
+		p "found_cell => #{cellList.size}"
 
 		# 検索にHITしたセルを選択
 		cellList.each { |cell|
