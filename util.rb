@@ -2,11 +2,11 @@
 
 require 'benchmark'
 
-IS_DEBUG	= true	# デバッグ機能を利用する際に使用する
+IS_DEBUG = true	# デバッグ機能を利用する際に使用する
 
 # 月ごとの日数
 MONTH_DAYS = [ 31, 28, 31, 30, 31, 30,
-						  31, 31, 30, 31, 30, 31 ] 
+			   31, 31, 30, 31, 30, 31 ]
 
 if( IS_DEBUG == true )
 	def dbgPrint( *args )
@@ -16,13 +16,13 @@ if( IS_DEBUG == true )
 	def dbgPuts( *args )
 		puts( args )
 	end
-else # IS_DEBUG
+else
 	def dbgPrint( *args )
 	end
 
 	def dbgPuts( *args )
 	end
-end # IS_DEBUG
+end
 
 def releasePuts( args, file = nil )
 	puts( args.encode( Encoding::UTF_8 )  )
@@ -87,7 +87,7 @@ def setConsoleColor( color_name_bg, color_name_text )
 	color_bg	= getConsoleColor( color_name_bg )
 	color_text	= getConsoleColor( color_name_text )
 	system("color #{color_bg}#{color_text}")
-	
+
 	if( color_bg == color_text )
 		assertLogPrintFalse( "背景色と文字色に同じ色を指定しています" )
 	end
@@ -172,10 +172,10 @@ def getSearchPatternList( root_dir, pattern_array )
 
 	search_list = Array.new()
 	pattern_array.each { |pat|
-		serach_pat = "#{root_dir}" + "/**/" + "#{pat}"	
+		serach_pat = "#{root_dir}" + "/**/" + "#{pat}"
 		search_list.push( serach_pat )
 	}
-	
+
 	return search_list
 end
 
@@ -190,15 +190,15 @@ def getSearchFile( root_dir, search_pattern )
 	# パターンにマッチするファイルパスを追加
 	file_list = Array.new
 	file_list.clear
-	
+
 	serach_pat_list = getSearchPatternList( "#{root_dir}", search_pattern )
 	Dir.glob( serach_pat_list ) do |file_path|
 		file_list.push( file_path )
 	end
 
 	# ascii順に並び替え
-	file_list.sort!	
-	
+	file_list.sort!
+
 	return file_list
 end
 
@@ -210,7 +210,7 @@ end
 def allClearFile( root_dir, search_pattern )
 
 	# ファイルを削除
-	serach_pat_list = getSearchPatternList( "#{root_dir}", search_pattern )	
+	serach_pat_list = getSearchPatternList( "#{root_dir}", search_pattern )
 	Dir.glob( serach_pat_list ) do |file_path|
 		FileUtils.rm_r( Dir.glob( "#{file_path}" ) )
 	end
@@ -227,15 +227,15 @@ end
 # @parm		search_pattern	検索パターン
 # --------------------------------------------
 def getMonthlyDayCount( month_num )
-							
+
 	# 指定月の日数を設定
-	monthly_days = MONTH_DAYS[ month_num - 1 ] # [0始まり] と [1始まり] の帳尻合わせ 
+	monthly_days = MONTH_DAYS[ month_num - 1 ] # [0始まり] と [1始まり] の帳尻合わせ
 
 	# 閏年を考慮
 	if( month_num == 2 && Date.new( year ).leap? )
 		monthly_days += 1
 	end
-	
+
 	return monthly_days
 end
 
@@ -244,7 +244,7 @@ end
 #----------------------------------------------
 def getSplitCalendar( value )
 
-	calendar = value.to_s	
+	calendar = value.to_s
 	return calendar.unpack("a4a2")	# 4文字 / 2文字に分割
 end
 
