@@ -283,10 +283,10 @@ module Excel
 	# @biref	指定した値を検索して上書きする
 	# @param	ws	操作するワークシート
 	# @param	serach_str	検索したい値
-	# @param	set_str		セットしたい値
+	# @param	set_value	セットしたい値
 	# @return	列番号
 	#----------------------------------------------
-	def Excel.resetData(ws, search_str, set_str)
+	def Excel.resetData(ws, search_str, set_value)
 		p "resetData()"
 
 		# 検索
@@ -315,7 +315,7 @@ module Excel
 
 		# 検索にHITしたセルに指定された値を設定
 		cellList.each { |cell|
-			ws.Cells.Item(cell.Row, cell.Column).Value = set_str
+			ws.Cells.Item(cell.Row, cell.Column).Value = set_value
 		}
 	end
 
