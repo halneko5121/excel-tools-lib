@@ -109,11 +109,11 @@ module Excel
 	#----------------------------------------------
 	# @biref	指定した文字列の行番号を返す
 	# @param	ws				ワークシート
-	# @param	search_column	検索する列番号
 	# @param	search_str		チェックするフィールド名
+	# @param	search_column	検索する列番号
 	# @return	列番号
 	#----------------------------------------------
-	def Excel.getRow(ws, search_column, search_str )
+	def Excel.getRow(ws, search_str, search_column)
 
 		#文字列の検索
 		search_result = ws.Columns(search_column).Find('What' => search_str)
