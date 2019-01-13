@@ -10,13 +10,13 @@ module Excel
 	#----------------------------------------------
 	# @biref	Excel オブジェクトを生成する
 	# @parm		visible			false でバックグラウンドでexcel起動
-	# @parm		displayAlerts	false で特定の警告やメッセージを表示しない
+	# @parm		display_alerts	false で特定の警告やメッセージを表示しない
 	# @return	Excel オブジェクト
 	#----------------------------------------------
-	def Excel.new(visible = false, displayAlerts = false)
+	def Excel.new(visible = false, display_alerts = false)
 		excel = WIN32OLE.new_with_const('Excel.Application', Excel)
 		excel.visible = visible
-		excel.displayAlerts = displayAlerts
+		excel.displayAlerts = display_alerts
 		excel.screenUpdating = visible					# 画面更新表示/非表示(visibleと合わせて設定する)
 #		excel.calculation = Excel::XlCalculationManual	# 再計算を手動でやる（自動の再計算を止める）
 		return excel
@@ -29,9 +29,9 @@ module Excel
 	# @parm		block			ブロック引数
 	# @note		ランタイムエラーが起こった場合Excelを終了します
 	#----------------------------------------------
-	def Excel.runDuring(visible = false, displayAlerts = false, &block)
+	def Excel.runDuring(visible = false, display_alerts = false, &block)
 		begin
-			excel = new(visible, displayAlerts)
+			excel = new(visible, display_alerts)
 			block.call(excel)
 		ensure
 			puts "excel new error"
