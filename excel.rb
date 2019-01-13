@@ -210,6 +210,17 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	Excel 範囲コピー
+	# @param	src_ws		コピー元のワークシート
+	# @param	src_range	コピー元の範囲指定
+	# @param	dst_ws		コピー先のワークシート
+	# @param	dst_range	コピー先の範囲指定
+	#----------------------------------------------
+	def Excel.rangeCopy( src_ws, src_range, dst_ws, dst_range )
+		dst_ws.range( "#{dst_range}" ).Value = src_ws.range( "#{src_range}" ).Value
+	end
+
+	#----------------------------------------------
 	# @biref	Excel 範囲コピー（高速版）
 	# @param	src_ws		コピー元のワークシート
 	# @param	src_range	コピー元の範囲指定
@@ -218,18 +229,6 @@ module Excel
 	#----------------------------------------------
 	def Excel.rangeCopyFast( src_ws, src_range, dst_ws, dst_range )
 		src_ws.range( src_range ).copy( {'Destination'=> dst_ws.range( dst_range )} )
-	end
-
-	#----------------------------------------------
-	# @biref	Excel 範囲コピー
-	# @param	src_ws		コピー元のワークシート
-	# @param	src_range	コピー元の範囲指定
-	# @param	dst_ws		コピー先のワークシート
-	# @param	dst_range	コピー先の範囲指定
-	#----------------------------------------------
-	def Excel.rangeCopy( src_ws, src_range, dst_ws, dst_range )
-
-		dst_ws.range( "#{dst_range}" ).Value = src_ws.range( "#{src_range}" ).Value
 	end
 
 	#----------------------------------------------
