@@ -97,8 +97,9 @@ module Excel
 
 		# 検索結果
 		if (search_result == nil) then
-#			p "Not FoundName !!" + "『" + search_str + "』"
-			p "Not FoundName !!"
+			utf_search_str	= search_str.encode( Encoding::UTF_8 )
+			error_str		= "Not Found Column Name !! 『#{utf_search_str}』"
+			assertLogPrintFalse( error_str )
 			return 0
 		else
 			return search_result.Column
