@@ -4,6 +4,7 @@
 #
 
 require File.expand_path( File.dirname(__FILE__) + '/win32ole-ext.rb' )
+require File.expand_path( File.dirname(__FILE__) + '/util.rb' )
 
 module Excel
 
@@ -68,7 +69,6 @@ module Excel
         sheet_name = sheet_name.encode( "Windows-31J" )
 		is_exist_sheet = false
 		wb.worksheets.each { |ws|
-
 			if( ws.name == sheet_name )
 				return true
 			end
