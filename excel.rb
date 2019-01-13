@@ -266,7 +266,7 @@ module Excel
 	# @biref	シート全体を自動調整
 	# @param    ws  自動調整したいワークシート
 	#----------------------------------------------
-	def Excel.autoFitDataRange(ws)
+	def Excel.autoFitCellAll(ws)
 
 		# シートをアクティブに
 		ws.Activate
