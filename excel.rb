@@ -311,11 +311,9 @@ module Excel
 			found_cell = ws.Cells.FindNext(found_cell)
 
 		end while (found_cell.Address != first_cell.Address)
-
-		# 最初のセルになるまでループ
 		p "found_cell => #{cellList.size}"
 
-		# 検索にHITしたセルを選択
+		# 検索にHITしたセルに指定された値を設定
 		cellList.each { |cell|
 			ws.Cells.Item(cell.Row, cell.Column).Value = set_str
 		}
