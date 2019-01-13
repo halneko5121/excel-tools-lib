@@ -223,10 +223,10 @@ end
 
 # --------------------------------------------
 # 指定月の日数を返す
-# @param	root_dir		検索のルートパス
-# @param	search_pattern	検索パターン
+# @param	year			年
+# @param	month_num		月（1 ~ 12）
 # --------------------------------------------
-def getMonthlyDayCount( month_num )
+def getMonthlyDayCount( year, month_num )
 
 	# 指定月の日数を設定
 	monthly_days = MONTH_DAYS[ month_num - 1 ] # [0始まり] と [1始まり] の帳尻合わせ
