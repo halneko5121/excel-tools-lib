@@ -175,9 +175,8 @@ module Excel
 	#----------------------------------------------
 	def Excel.sheetCopy( src_wb, src_ws_name, dst_wb, dst_ws_number )
 
+		# シートをコピー
 		if( existSheet( src_wb, src_ws_name ) == true )
-
-			# シートをコピー
 			ws_temp	= src_wb.worksheets( "#{src_ws_name}" )
 			ws_temp.copy( {'After'=> dst_wb.worksheets(dst_ws_number)} )
 		end
