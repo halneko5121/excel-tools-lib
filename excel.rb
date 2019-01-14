@@ -248,13 +248,14 @@ module Excel
 	end
 
 	#----------------------------------------------
-	# @biref	指定曜日が土日の際にシート色をつける
+	# @biref	指定年月日が土日の際にシート色をつける
 	# @param	ws		ワークシート
 	# @param	w_day	曜日
 	#----------------------------------------------
-	def Excel.setSheetColorWithWeekend( ws, w_day )
+	def Excel.setSheetColorWithWeekend( ws, year, month, day )
 
 		# 日曜
+		w_day = calcWeekDay( year, month, day )
 		if( w_day == "日" )
 			ws.Tab.ColorIndex = 3
 		# 土曜
