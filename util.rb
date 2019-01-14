@@ -216,7 +216,7 @@ def allClearFile( root_dir, pattern_array )
 	# ファイルを削除
 	search_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
 	Dir.glob( search_pat_list ) do |file_path|
-		fileutils.rm_r( Dir.glob( "#{file_path}" ) )
+		FileUtils.rm_r( Dir.glob( "#{file_path}" ) )
 	end
 
 	# out フォルダ以下のフォルダを削除
