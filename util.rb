@@ -185,16 +185,16 @@ end
 #----------------------------------------------
 # パターンにマッチするファイルの検索
 # @param	root_dir		検索のルートパス
-# @param	search_pattern	検索パターン
+# @param	pattern_array	検索パターン配列
 # @return	ファイルリスト
 #----------------------------------------------
-def getSearchFile( root_dir, search_pattern )
+def getSearchFile( root_dir, pattern_array )
 
 	# パターンにマッチするファイルパスを追加
 	file_list = Array.new
 	file_list.clear
 
-	serach_pat_list = getSearchPatternList( "#{root_dir}", search_pattern )
+	serach_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
 	Dir.glob( serach_pat_list ) do |file_path|
 		file_list.push( file_path )
 	end
@@ -208,12 +208,12 @@ end
 # --------------------------------------------
 # 出力フォルダのファイルを削除
 # @param	root_dir		検索のルートパス
-# @param	search_pattern	検索パターン
+# @param	pattern_array	検索パターン配列
 # --------------------------------------------
-def allClearFile( root_dir, search_pattern )
+def allClearFile( root_dir, pattern_array )
 
 	# ファイルを削除
-	serach_pat_list = getSearchPatternList( "#{root_dir}", search_pattern )
+	serach_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
 	Dir.glob( serach_pat_list ) do |file_path|
 		FileUtils.rm_r( Dir.glob( "#{file_path}" ) )
 	end
