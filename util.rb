@@ -194,8 +194,8 @@ def getSearchFile( root_dir, pattern_array )
 	file_list = Array.new
 	file_list.clear
 
-	serach_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
-	Dir.glob( serach_pat_list ) do |file_path|
+	search_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
+	Dir.glob( search_pat_list ) do |file_path|
 		file_list.push( file_path )
 	end
 
@@ -213,9 +213,9 @@ end
 def allClearFile( root_dir, pattern_array )
 
 	# ファイルを削除
-	serach_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
-	Dir.glob( serach_pat_list ) do |file_path|
-		FileUtils.rm_r( Dir.glob( "#{file_path}" ) )
+	search_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
+	Dir.glob( search_pat_list ) do |file_path|
+		fileutils.rm_r( Dir.glob( "#{file_path}" ) )
 	end
 
 	# out フォルダ以下のフォルダを削除
