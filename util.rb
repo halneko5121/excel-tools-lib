@@ -189,7 +189,7 @@ end
 # @param	pattern_array	検索パターン配列
 # @return	ファイルリスト
 #----------------------------------------------
-def getSearchFile( root_dir, pattern_array )
+def getSearchFileList( root_dir, pattern_array )
 
 	# パターンにマッチするファイルパスを追加
 	file_list = Array.new
