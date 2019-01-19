@@ -272,7 +272,7 @@ module Excel
 	# @param	ws		ワークシート
 	#----------------------------------------------
 	def Excel.isWsColorRed( ws )
-		if( ws.Tab.ColorIndex = 3 )
+		if( ws.Tab.ColorIndex == 3 )
 			return true
 		else
 			return false
