@@ -269,7 +269,7 @@ end
 #----------------------------------------------
 # 西暦を平成に変換する
 #----------------------------------------------
-def getYearNumberHeisei( year )
+def convertYearNumberHeisei( year )
 
 	# year を 1文字 / 3文字に分割 => 下三桁に12を加算
 	year_number_array = year.unpack("a1a3")
