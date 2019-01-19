@@ -266,6 +266,19 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	シート保護の設定／解除
+	# @param	ws			ワークシート
+	# @param	is_protect	保護するか
+	#----------------------------------------------
+	def Excel.setProtectSheet( ws, is_protect )
+		if ( is_protect == true )
+			ws_staff.Protect
+		else
+			ws_staff.UnProtect
+		end
+	end
+
+	#----------------------------------------------
 	# @biref	指定年月日が土日の際にシート色をつける
 	# @param	ws		ワークシート
 	# @param	w_day	曜日
