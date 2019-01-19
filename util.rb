@@ -312,9 +312,9 @@ def isWeekend( year, month, day )
 end
 
 #----------------------------------------------
-# @biref	生年月日から年齢を算出（）
-# @parm		birthday		生年月日
-# @parm		create_calendar	生成年月
+# @biref	生年月日から年齢を算出（外部からは呼ばない想定）
+# @parm		birthday		生年月日（2000/01/01 想定）
+# @parm		create_calendar	生成年月（201501 想定）
 #----------------------------------------------
 def calcAgeImple( birthday, year_month )
 
@@ -337,8 +337,8 @@ end
 
 #----------------------------------------------
 # @biref	生年月日から年齢を算出
-# @parm		birthday		生年月日
-# @parm		create_calendar	生成年月
+# @parm		birthday		生年月日（2000/01/01 想定）
+# @parm		create_calendar	生成年月（201501 想定）
 #----------------------------------------------
 def calcAge( birthday, year_month )
 	age_year = calcAgeImple( birthday, year_month)
@@ -347,8 +347,8 @@ end
 
 #----------------------------------------------
 # @biref	生年月日から年齢文字列を算出（○歳○ヶ月ver）
-# @parm		birthday		生年月日
-# @parm		create_calendar	生成年月
+# @parm		birthday		生年月日（2000/01/01 想定）
+# @parm		create_calendar	生成年月（201501 想定）
 #----------------------------------------------
 def calcAgeStrWithMonth( birthday, year_month )
 
