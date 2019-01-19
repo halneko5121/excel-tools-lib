@@ -312,20 +312,20 @@ def isWeekend( year, month, day )
 end
 
 #----------------------------------------------
-# @biref	生年月日から年齢を算出（外部からは呼ばない想定）
-# @parm		birthday		生年月日（2000/01/01 想定）
-# @parm		create_calendar	生成年月（201501 想定）
+# @biref	指定範囲の年月を算出（外部からは呼ばない想定）
+# @parm		start_time			開始生年月日（2000/01/01 想定）
+# @parm		check_year_month	チェック年月（201501 想定）
 #----------------------------------------------
-def calcAgeImple( birthday, year_month )
+def calcYearsImple( start_time, check_year_month )
 
 	# 指定年月を算出
-	str_calendar 	= splitYearMonth( year_month )
+	str_calendar 	= splitYearMonth( check_year_month )
 	year	 		= str_calendar[0].to_i
 	month			= str_calendar[1].to_i
 	time_now		= Date.new( year, month )
 
 	# 生年月日を算出
-	date_time_birth	= DateTime.parse( birthday )
+	date_time_birth	= DateTime.parse( start_time )
 	time_birth		= Date.new( date_time_birth.year, date_time_birth.mon, date_time_birth.day )
 
 	# 年齢を算出
@@ -336,23 +336,23 @@ def calcAgeImple( birthday, year_month )
 end
 
 #----------------------------------------------
-# @biref	生年月日から年齢を算出
-# @parm		birthday		生年月日（2000/01/01 想定）
-# @parm		create_calendar	生成年月（201501 想定）
+# @biref	指定範囲の年月を算出
+# @parm		start_time			開始生年月日（2000/01/01 想定）
+# @parm		check_year_month	チェック年月（201501 想定）
 #----------------------------------------------
-def calcAge( birthday, year_month )
-	age_year = calcAgeImple( birthday, year_month)
-	return age_year.floor;
+def calcYears( start_time, check_year_month )
+	range_year = calcYearsImple( start_time, check_year_month)
+	return range_year.floor;
 end
 
 #----------------------------------------------
-# @biref	生年月日から年齢文字列を算出（○歳○ヶ月ver）
-# @parm		birthday		生年月日（2000/01/01 想定）
-# @parm		create_calendar	生成年月（201501 想定）
+# @biref	指定範囲の年月文字列を算出（○歳○ヶ月ver）
+# @parm		start_time			開始生年月日（2000/01/01 想定）
+# @parm		check_year_month	チェック年月（201501 想定）
 #----------------------------------------------
-def calcAgeStrWithMonth( birthday, year_month )
+def calcAgeStrWithMonth( start_time, check_year_month )
 
-	age_year		= calcAgeImple( birthday, year_month)
+	age_year		= calcAgeImple( start_time, check_year_month)
 	result_month	= (age_year - age_year.floor) * 12
 	result_age		= "#{result_year.floor}歳 #{result_month.ceil}ヶ月"
 
