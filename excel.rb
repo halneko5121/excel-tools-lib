@@ -272,9 +272,9 @@ module Excel
 	#----------------------------------------------
 	def Excel.setProtectSheet( ws, is_protect )
 		if ( is_protect == true )
-			ws_staff.Protect
+			ws.Protect
 		else
-			ws_staff.UnProtect
+			ws.UnProtect
 		end
 	end
 
