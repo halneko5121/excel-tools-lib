@@ -174,6 +174,17 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定したセルのデータを設定する
+	# @param	ws				ワークシート
+	# @param	row_index		行番号
+	# @param	column_index	列番号
+	# @param	value			設定する値
+	#----------------------------------------------
+	def Excel.setCellValue(ws, row_index, column_index, value)
+		ws.Cells.Item(row_index, column_index).Value = value
+	end
+
+	#----------------------------------------------
 	# @biref	Excel シートコピー
 	# @param	src_wb			コピー元のワークブック
 	# @param	src_ws_name		コピー元のワークシートネーム
