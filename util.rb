@@ -358,3 +358,13 @@ def calcAgeStrWithMonth( start_time, check_year_month )
 
 	return result_age;
 end
+
+#----------------------------------------------
+# @biref	WIN32OLEの「cripting.FileSystemObject」のコピー機能利用
+# @parm		src_path	コピー元のパス
+# @parm		dst_path	コピー先のパス
+#----------------------------------------------
+def fsoCopyFile( src_path, dst_path )
+	fso = WIN32OLE.new('Scripting.FileSystemObject')
+	fso.CopyFile( src_path, dst_path )
+end
