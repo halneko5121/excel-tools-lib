@@ -2,7 +2,7 @@
 
 require 'benchmark'
 require "date"
-require "FileUtils"
+require "fileutils"
 
 IS_DEBUG = true	# デバッグ機能を利用する際に使用する
 
