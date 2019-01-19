@@ -18,7 +18,7 @@ class ExcelParamData
 		@param_list.clear
 
 		assertLogPrintNotFoundFile( @wb_path )
-		setData()
+		setParam()
 	end
 
 	# パラメータのリストを取得
@@ -27,7 +27,7 @@ class ExcelParamData
 	end
 
 	private
-	def setData()
+	def setParam()
 
 		Excel.runDuring(false, false) do |excel|
 
@@ -74,5 +74,4 @@ class ExcelParamData
 			}
 		}
 	end
-
 end
