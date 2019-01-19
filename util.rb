@@ -310,3 +310,51 @@ def isWeekend( year, month, day )
 		return true
 	end
 end
+
+#----------------------------------------------
+# @biref	生年月日から年齢を算出（）
+# @parm		birthday		生年月日
+# @parm		create_calendar	生成年月
+#----------------------------------------------
+def calcAgeImple( birthday, year_month )
+
+	# 指定年月を算出
+	str_calendar 	= splitYearMonth( year_month )
+	year	 		= str_calendar[0].to_i
+	month			= str_calendar[1].to_i
+	time_now		= Date.new( year, month )
+
+	# 生年月日を算出
+	date_time_birth	= DateTime.parse( birthday )
+	time_birth		= Date.new( date_time_birth.year, date_time_birth.mon, date_time_birth.day )
+
+	# 年齢を算出
+	diff			= time_now - time_birth
+	result_age		= diff.to_f / 365
+
+	return result_age;
+end
+
+#----------------------------------------------
+# @biref	生年月日から年齢を算出
+# @parm		birthday		生年月日
+# @parm		create_calendar	生成年月
+#----------------------------------------------
+def calcAge( birthday, year_month )
+	age_year = calcAgeImple( birthday, year_month)
+	return age_year.floor;
+end
+
+#----------------------------------------------
+# @biref	生年月日から年齢文字列を算出（○歳○ヶ月ver）
+# @parm		birthday		生年月日
+# @parm		create_calendar	生成年月
+#----------------------------------------------
+def calcAgeStrWithMonth( birthday, year_month )
+
+	age_year		= calcAgeImple( birthday, year_month)
+	result_month	= (age_year - age_year.floor) * 12
+	result_age		= "#{result_year.floor}歳 #{result_month.ceil}ヶ月"
+
+	return result_age;
+end
