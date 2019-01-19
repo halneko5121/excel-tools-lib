@@ -35,7 +35,6 @@ module Excel
 			excel = new(visible, display_alerts)
 			block.call(excel)
 		ensure
-			puts "excel new error"
 			if( excel != nil )
 #				excel.visible = true
 #				excel.displayAlerts = true
