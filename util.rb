@@ -211,7 +211,7 @@ end
 # @param	root_dir		検索のルートパス
 # @param	pattern_array	検索パターン配列
 # --------------------------------------------
-def allClearFile( root_dir, pattern_array )
+def allRomoveFile( root_dir, pattern_array )
 
 	# ファイルを削除
 	search_pat_list = getSearchPatternList( "#{root_dir}", pattern_array )
