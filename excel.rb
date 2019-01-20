@@ -269,20 +269,20 @@ module Excel
 	# @biref	指定列を表示／非表示
 	# @param	ws			ワークシート
 	# @param	column		列番号
-	# @param	is_hidden	非表示にするか
+	# @param	is_visible	表示にするか
 	#----------------------------------------------
-	def Excel.setHideColumns( ws, column, is_hidden )
-		ws.Cells.Columns(column).Hidden	= is_hidden
+	def Excel.setVisibleColumns( ws, column, is_visible )
+		ws.Cells.Columns(column).Hidden	= !is_visible
 	end
 
 	#----------------------------------------------
 	# @biref	指定列を表示／非表示
 	# @param	ws			ワークシート
 	# @param	row			行番号
-	# @param	is_hidden	非表示にするか
+	# @param	is_visible	表示にするか
 	#----------------------------------------------
-	def Excel.setHideRows( ws, row, is_hidden )
-		ws.Cells.Rows.(row).Hidden = is_hidden
+	def Excel.setVisibleRows( ws, row, is_visible )
+		ws.Cells.Rows.(row).Hidden = !is_hidden
 	end
 
 	#----------------------------------------------
