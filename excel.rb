@@ -62,8 +62,14 @@ module Excel
 	#----------------------------------------------
 	# @biref	指定したワークブックを保存、終了
 	#----------------------------------------------
-	def Excel.saveAndClose( wb )
-		wb.save()
+	def Excel.saveAndClose( wb, file_path = nil )
+		if ( file_path != nil )
+			file_path = File.expand_path( file_path )
+			file_path = file_path.gsub( "\\", "/" )
+			wb.saveAs( file_path )
+		else
+			wb.save()
+		end
 		wb.close(0)
 	end
 
