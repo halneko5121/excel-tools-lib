@@ -64,9 +64,8 @@ module Excel
 	#----------------------------------------------
 	def Excel.saveAndClose( wb, file_path = nil )
 		if ( file_path != nil )
-			file_path = File.expand_path( file_path )
-			file_path = file_path.gsub( "\\", "/" )
-			wb.saveAs( file_path )
+			fso = WIN32OLE.new('Scripting.FileSystemObject')
+			wb.saveAs( fso.GetAbsolutePathName("#{file_path}") )
 		else
 			wb.save()
 		end
