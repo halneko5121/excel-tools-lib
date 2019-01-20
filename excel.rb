@@ -308,6 +308,15 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	シートを表示／非表示
+	# @param	ws			ワークシート
+	# @param	is_visible	表示にするか
+	#----------------------------------------------
+	def Excel.setVisibleSheet( ws, is_visible )
+		ws.visible = is_visible
+	end
+
+	#----------------------------------------------
 	# @biref	シート保護の設定／解除
 	# @param	ws			ワークシート
 	# @param	is_protect	保護するか
