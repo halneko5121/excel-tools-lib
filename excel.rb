@@ -297,6 +297,17 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定セルにコメントを追加する
+	# @param	ws			ワークシート
+	# @param	cell_row	セルの行番号
+	# @param	cell_column	セルの列番号
+	# @param	comment		コメント
+	#----------------------------------------------
+	def Excel.setAddCommentCell( ws, cell_row, cell_column, comment )
+		ws.Cells.Item(cell_row, cell_column).AddComment( comment )
+	end
+
+	#----------------------------------------------
 	# @biref	シート保護の設定／解除
 	# @param	ws			ワークシート
 	# @param	is_protect	保護するか
