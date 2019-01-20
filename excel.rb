@@ -266,6 +266,26 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定列を表示／非表示
+	# @param	ws			ワークシート
+	# @param	column		列番号
+	# @param	is_hidden	非表示にするか
+	#----------------------------------------------
+	def Excel.setHideColumns( ws, column, is_hidden )
+		ws.Cells.Columns(column).Hidden	= is_hidden
+	end
+
+	#----------------------------------------------
+	# @biref	指定列を表示／非表示
+	# @param	ws			ワークシート
+	# @param	row			行番号
+	# @param	is_hidden	非表示にするか
+	#----------------------------------------------
+	def Excel.setHideRows( ws, row, is_hidden )
+		ws.Cells.Rows.(row).Hidden = is_hidden
+	end
+
+	#----------------------------------------------
 	# @biref	指定セルのロック設定／解除
 	# @param	ws			ワークシート
 	# @param	cell_row	セルの行番号
