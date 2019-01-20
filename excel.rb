@@ -266,6 +266,17 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定セルのロック設定／解除
+	# @param	ws			ワークシート
+	# @param	cell_row	セルの行番号
+	# @param	cell_column	セルの列番号
+	# @param	is_lock		ロックするか
+	#----------------------------------------------
+	def Excel.setLockCell( ws, cell_row, cell_column, is_lock )
+		ws.Cells.Item(cell_row, cell_column).Locked = is_lock
+	end
+
+	#----------------------------------------------
 	# @biref	シート保護の設定／解除
 	# @param	ws			ワークシート
 	# @param	is_protect	保護するか
