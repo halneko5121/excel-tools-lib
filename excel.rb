@@ -239,7 +239,7 @@ module Excel
 	# @param	dst_ws		コピー先のワークシート
 	# @param	dst_range	コピー先の範囲指定
 	#----------------------------------------------
-	def Excel.rangeCopyFast( src_ws, src_range, dst_ws, dst_range )
+	def Excel.rangeCopy( src_ws, src_range, dst_ws, dst_range )
 		src_ws.range( src_range ).copy( {'Destination'=> dst_ws.range( dst_range )} )
 	end
 
