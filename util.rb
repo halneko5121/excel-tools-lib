@@ -368,3 +368,25 @@ def fsoCopyFile( src_path, dst_path )
 	fso = WIN32OLE.new('Scripting.FileSystemObject')
 	fso.CopyFile( src_path, dst_path )
 end
+
+#----------------------------------------------
+# @biref	ネットワークフォルダに接続します
+# @parm		connect_path	接続したいパス
+# @parm		user_name		ユーザーネーム
+# @parm		password		パスワード
+#----------------------------------------------
+def netPathConnect( connect_path, user_name, password )
+	command = "@NET USE #{connect_path} #{connect_path} #{password} /USER:LO\\#{user_name} /PERSISTENT:NO"
+	system( "#{command}" )
+end
+
+def netPathConnectWithConfirm( connect_path, user_name, password )
+
+	puts "#{connect_path} にログインします"
+	puts "よろしいですか?(既にログイン済みの場合はn) [yes -> y][no -> n]\n"
+	result = STDIN.gets.chomp
+
+	if( "#{result}" == "y" )
+		netPathConnect( connect_path, user_name, password )
+	end
+end
