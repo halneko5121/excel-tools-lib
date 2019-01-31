@@ -4,7 +4,7 @@
 #
 
 require File.expand_path( File.dirname(__FILE__) + '/win32ole-ext.rb' )
-require File.expand_path( File.dirname(__FILE__) + '/util.rb' )
+require File.expand_path( File.dirname(__FILE__) + '/Util.rb' )
 
 module Excel
 
