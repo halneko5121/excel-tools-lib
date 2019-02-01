@@ -387,6 +387,16 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	アクティブウィンドウのスクロール設定
+	# @param    scroll_row		スクロールさせたい行
+	# @param    scroll_column	スクロールさせたい列
+	#----------------------------------------------
+	def Excel.setScrollWithActiveWindow( excel, scroll_row, scroll_column )
+		excel.ActiveWindow.ScrollRow = scroll_row
+		excel.ActiveWindow.ScrollColumn = scroll_column
+	end
+
+	#----------------------------------------------
 	# @biref	シート全体を自動調整
 	# @param    ws  自動調整したいワークシート
 	#----------------------------------------------
