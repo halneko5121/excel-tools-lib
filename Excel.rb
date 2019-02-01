@@ -387,6 +387,14 @@ module Excel
 	end
 
 	#----------------------------------------------
+	# @biref	指定ワークブックのシート数を取得
+	# @param	wb		ワークブック
+	#----------------------------------------------
+	def Excel.getSheetCount( wb )
+		return wb.worksheets.count()
+	end
+
+	#----------------------------------------------
 	# @biref	アクティブウィンドウのスクロール設定
 	# @param    scroll_row		スクロールさせたい行
 	# @param    scroll_column	スクロールさせたい列
@@ -400,7 +408,7 @@ module Excel
 	# @biref	シート全体を自動調整
 	# @param    ws  自動調整したいワークシート
 	#----------------------------------------------
-	def Excel.autoFitCellAll(ws)
+	def Excel.autoFitCellAll( ws )
 
 		# シートをアクティブに
 		ws.Activate
@@ -420,7 +428,7 @@ module Excel
 	# @param	set_value	セットしたい値
 	# @return	列番号
 	#----------------------------------------------
-	def Excel.resetData(ws, search_str, set_value)
+	def Excel.resetData( ws, search_str, set_value )
 		p "resetData()"
 
 		# 検索
