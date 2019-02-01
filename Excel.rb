@@ -36,10 +36,6 @@ module Excel
 			block.call(excel)
 		ensure
 			if( excel != nil )
-#				excel.visible = true
-#				excel.displayAlerts = true
-#				excel.screenUpdating = true
-#				excel.Calculation = Excel::XlCalculationAutomatic
 				excel.Quit
 			end
 		end
